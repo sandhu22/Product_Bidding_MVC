@@ -1,0 +1,47 @@
+﻿@model Product_Bidding.BusinessLayer.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <header class="masthead">
+        <div class="container" style="height:50vh">
+            <div class="intro-text">
+                <div class="intro-lead-in">Delete Products</div>
+
+
+            </div>
+        </div>
+    </header>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartingPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartingPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSold)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsSold)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-primary"/> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

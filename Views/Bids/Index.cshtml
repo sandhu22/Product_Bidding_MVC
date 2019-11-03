@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Product_Bidding.BusinessLayer.Bid>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <header class="masthead">
+        <div class="container" style="height:50vh">
+            <div class="intro-text">
+                <div class="intro-lead-in">All Bids</div>
+
+
+            </div>
+        </div>
+    </header>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BidPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer.BuyerAccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.SellerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BidPrice)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
